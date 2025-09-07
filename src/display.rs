@@ -90,19 +90,23 @@ static DISPLAY_DATA: &str = "data";
 pub fn register_agents(askit: &ASKit) {
     // Display Data Agent
     askit.register_agent(
-        AgentDefinition::new(KIND, "$display_data", Some(new_boxed::<DisplayDataAgent>))
-            .with_title("Display Data")
-            .with_category(CATEGORY)
-            .with_inputs(vec!["data"])
-            .with_display_config(vec![(
-                DISPLAY_DATA.into(),
-                AgentDisplayConfigEntry::new("*").with_hide_title(),
-            )]),
+        AgentDefinition::new(
+            KIND,
+            "std_display_data",
+            Some(new_boxed::<DisplayDataAgent>),
+        )
+        .with_title("Display Data")
+        .with_category(CATEGORY)
+        .with_inputs(vec!["data"])
+        .with_display_config(vec![(
+            DISPLAY_DATA.into(),
+            AgentDisplayConfigEntry::new("*").with_hide_title(),
+        )]),
     );
 
     // Debug Data Agent
     askit.register_agent(
-        AgentDefinition::new(KIND, "$debug_data", Some(new_boxed::<DebugDataAgent>))
+        AgentDefinition::new(KIND, "std_debug_data", Some(new_boxed::<DebugDataAgent>))
             .with_title("Debug Data")
             .with_category(CATEGORY)
             .with_inputs(vec!["*"])

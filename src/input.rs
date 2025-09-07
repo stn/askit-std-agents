@@ -302,7 +302,7 @@ static CONFIG_OBJECT: &str = "object";
 pub fn register_agents(askit: &ASKit) {
     // Unit Input Agent
     askit.register_agent(
-        AgentDefinition::new(KIND, "$unit_input", Some(new_boxed::<UnitInputAgent>))
+        AgentDefinition::new(KIND, "std_unit_input", Some(new_boxed::<UnitInputAgent>))
             .with_title("Unit Input")
             .with_category(CATEGORY)
             .with_outputs(vec![CONFIG_UNIT])
@@ -314,55 +314,71 @@ pub fn register_agents(askit: &ASKit) {
 
     // Boolean Input
     askit.register_agent(
-        AgentDefinition::new(KIND, "$boolean_input", Some(new_boxed::<BooleanInputAgent>))
-            .with_title("Boolean Input")
-            .with_category(CATEGORY)
-            .with_outputs(vec![CONFIG_BOOLEAN])
-            .with_default_config(vec![(
-                CONFIG_BOOLEAN.into(),
-                AgentConfigEntry::new(AgentValue::new_boolean(false), "boolean"),
-            )]),
+        AgentDefinition::new(
+            KIND,
+            "std_boolean_input",
+            Some(new_boxed::<BooleanInputAgent>),
+        )
+        .with_title("Boolean Input")
+        .with_category(CATEGORY)
+        .with_outputs(vec![CONFIG_BOOLEAN])
+        .with_default_config(vec![(
+            CONFIG_BOOLEAN.into(),
+            AgentConfigEntry::new(AgentValue::new_boolean(false), "boolean"),
+        )]),
     );
 
     // Integer Input
     askit.register_agent(
-        AgentDefinition::new(KIND, "$integer_input", Some(new_boxed::<IntegerInputAgent>))
-            .with_title("Integer Input")
-            .with_category(CATEGORY)
-            .with_outputs(vec![CONFIG_INTEGER])
-            .with_default_config(vec![(
-                CONFIG_INTEGER.into(),
-                AgentConfigEntry::new(AgentValue::new_integer(0), "integer"),
-            )]),
+        AgentDefinition::new(
+            KIND,
+            "std_integer_input",
+            Some(new_boxed::<IntegerInputAgent>),
+        )
+        .with_title("Integer Input")
+        .with_category(CATEGORY)
+        .with_outputs(vec![CONFIG_INTEGER])
+        .with_default_config(vec![(
+            CONFIG_INTEGER.into(),
+            AgentConfigEntry::new(AgentValue::new_integer(0), "integer"),
+        )]),
     );
 
     // Number Input
     askit.register_agent(
-        AgentDefinition::new(KIND, "$number_input", Some(new_boxed::<NumberInputAgent>))
-            .with_title("Number Input")
-            .with_category(CATEGORY)
-            .with_outputs(vec![CONFIG_NUMBER])
-            .with_default_config(vec![(
-                CONFIG_NUMBER.into(),
-                AgentConfigEntry::new(AgentValue::new_number(0.0), "number"),
-            )]),
+        AgentDefinition::new(
+            KIND,
+            "std_number_input",
+            Some(new_boxed::<NumberInputAgent>),
+        )
+        .with_title("Number Input")
+        .with_category(CATEGORY)
+        .with_outputs(vec![CONFIG_NUMBER])
+        .with_default_config(vec![(
+            CONFIG_NUMBER.into(),
+            AgentConfigEntry::new(AgentValue::new_number(0.0), "number"),
+        )]),
     );
 
     // String Input
     askit.register_agent(
-        AgentDefinition::new(KIND, "$string_input", Some(new_boxed::<StringInputAgent>))
-            .with_title("String Input")
-            .with_category(CATEGORY)
-            .with_outputs(vec![CONFIG_STRING])
-            .with_default_config(vec![(
-                CONFIG_STRING.into(),
-                AgentConfigEntry::new(AgentValue::new_string(""), "string"),
-            )]),
+        AgentDefinition::new(
+            KIND,
+            "std_string_input",
+            Some(new_boxed::<StringInputAgent>),
+        )
+        .with_title("String Input")
+        .with_category(CATEGORY)
+        .with_outputs(vec![CONFIG_STRING])
+        .with_default_config(vec![(
+            CONFIG_STRING.into(),
+            AgentConfigEntry::new(AgentValue::new_string(""), "string"),
+        )]),
     );
 
     // Text Input
     askit.register_agent(
-        AgentDefinition::new(KIND, "$text_input", Some(new_boxed::<TextInputAgent>))
+        AgentDefinition::new(KIND, "std_text_input", Some(new_boxed::<TextInputAgent>))
             .with_title("Text Input")
             .with_category(CATEGORY)
             .with_outputs(vec![CONFIG_TEXT])
@@ -374,13 +390,17 @@ pub fn register_agents(askit: &ASKit) {
 
     // Object Input
     askit.register_agent(
-        AgentDefinition::new(KIND, "$object_input", Some(new_boxed::<ObjectInputAgent>))
-            .with_title("Object Input")
-            .with_category(CATEGORY)
-            .with_outputs(vec![CONFIG_OBJECT])
-            .with_default_config(vec![(
-                CONFIG_OBJECT.into(),
-                AgentConfigEntry::new(AgentValue::default_object(), "object"),
-            )]),
+        AgentDefinition::new(
+            KIND,
+            "std_object_input",
+            Some(new_boxed::<ObjectInputAgent>),
+        )
+        .with_title("Object Input")
+        .with_category(CATEGORY)
+        .with_outputs(vec![CONFIG_OBJECT])
+        .with_default_config(vec![(
+            CONFIG_OBJECT.into(),
+            AgentConfigEntry::new(AgentValue::default_object(), "object"),
+        )]),
     );
 }

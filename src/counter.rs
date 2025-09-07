@@ -63,7 +63,7 @@ static DISPLAY_COUNT: &str = "count";
 pub fn register_agents(askit: &ASKit) {
     // Counter Agent
     askit.register_agent(
-        AgentDefinition::new("agent", "$counter", Some(new_boxed::<CounterAgent>))
+        AgentDefinition::new("agent", "std_counter", Some(new_boxed::<CounterAgent>))
             .with_title("Counter")
             // .with_description("Display value on the node")
             .with_category(CATEGORY)
