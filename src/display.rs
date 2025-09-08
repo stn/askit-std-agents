@@ -1,5 +1,7 @@
 use std::vec;
 
+use async_trait::async_trait;
+
 use agent_stream_kit::{
     ASKit, AgentConfig, AgentContext, AgentData, AgentDefinition, AgentDisplayConfigEntry,
     AgentError, AgentOutput, AgentValue, AgentValueMap, AsAgent, AsAgentData, new_boxed,
@@ -10,6 +12,7 @@ struct DisplayDataAgent {
     data: AsAgentData,
 }
 
+#[async_trait]
 impl AsAgent for DisplayDataAgent {
     fn new(
         askit: ASKit,
@@ -34,7 +37,7 @@ impl AsAgent for DisplayDataAgent {
         Ok(())
     }
 
-    fn process(&mut self, _ctx: AgentContext, data: AgentData) -> Result<(), AgentError> {
+    async fn process(&mut self, _ctx: AgentContext, data: AgentData) -> Result<(), AgentError> {
         self.emit_display(DISPLAY_DATA, data);
         Ok(())
     }
@@ -45,6 +48,7 @@ struct DebugDataAgent {
     data: AsAgentData,
 }
 
+#[async_trait]
 impl AsAgent for DebugDataAgent {
     fn new(
         askit: ASKit,
@@ -65,7 +69,7 @@ impl AsAgent for DebugDataAgent {
         &mut self.data
     }
 
-    fn process(&mut self, _ctx: AgentContext, data: AgentData) -> Result<(), AgentError> {
+    async fn process(&mut self, _ctx: AgentContext, data: AgentData) -> Result<(), AgentError> {
         let value = AgentValue::new_object(AgentValueMap::from([
             ("kind".to_string(), AgentValue::new_string(data.kind)),
             ("value".to_string(), data.value),
