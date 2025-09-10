@@ -15,10 +15,6 @@
 [Agent Stream Kit](https://github.com/stn/agent-stream-kit)
 
 
-<!----------------------------------------------------------------------------->
-
-[License]: MIT or Apache-2.0
-
 <!----------------------------------{ Badges }--------------------------------->
 
 [Badge Language]: https://img.shields.io/github/languages/top/stn/agent-stream-kit
