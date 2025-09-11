@@ -619,7 +619,7 @@ static TIME_DEFAULT: &str = "1s";
 pub fn register_agents(askit: &ASKit) {
     // Delay Agent
     askit.register_agent(
-        AgentDefinition::new(AGENT_KIND, "$delay", Some(new_boxed::<DelayAgent>))
+        AgentDefinition::new(AGENT_KIND, "std_delay", Some(new_boxed::<DelayAgent>))
             .with_title("Delay")
             .with_description("Delays output by a specified time")
             .with_category(CATEGORY)
@@ -643,7 +643,7 @@ pub fn register_agents(askit: &ASKit) {
     askit.register_agent(
         AgentDefinition::new(
             AGENT_KIND,
-            "$interval_timer",
+            "std_interval_timer",
             Some(new_boxed::<IntervalTimerAgent>),
         )
         .with_title("Interval Timer")
@@ -659,7 +659,7 @@ pub fn register_agents(askit: &ASKit) {
 
     // OnStart
     askit.register_agent(
-        AgentDefinition::new(AGENT_KIND, "$on_start", Some(new_boxed::<OnStartAgent>))
+        AgentDefinition::new(AGENT_KIND, "std_on_start", Some(new_boxed::<OnStartAgent>))
             .with_title("On Start")
             .with_category(CATEGORY)
             .with_outputs(vec![CH_UNIT])
@@ -674,7 +674,7 @@ pub fn register_agents(askit: &ASKit) {
     askit.register_agent(
         AgentDefinition::new(
             AGENT_KIND,
-            "$schedule_timer",
+            "std_schedule_timer",
             Some(new_boxed::<ScheduleTimerAgent>),
         )
         .with_title("Schedule Timer")
@@ -691,7 +691,7 @@ pub fn register_agents(askit: &ASKit) {
     askit.register_agent(
         AgentDefinition::new(
             AGENT_KIND,
-            "$throttle_time",
+            "std_throttle_time",
             Some(new_boxed::<ThrottleTimeAgent>),
         )
         .with_title("Throttle Time")
