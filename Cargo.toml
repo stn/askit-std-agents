@@ -9,4 +9,12 @@ license = "Apache-2.0 OR MIT"
 [dependencies]
 agent-stream-kit = "0.1"
 async-trait = "0.1"
+chrono = "0.4.42"
+cron = "0.15.0"
+log = "0.4.28"
+regex = "1.11.2"
 serde_json = "1"
+tokio = { version = "1", features = ["time"] }
+
+#[patch.crates-io]
+#agent-stream-kit = { path = "../../agent-stream-kit" }
